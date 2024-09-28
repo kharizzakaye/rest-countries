@@ -33,10 +33,22 @@ const CardComponent = () => {
                     <Card.Img variant="top" src={country.flags?.png} style={{ height: "200px" }} />
 
                     <Card.Body>
-                      <Card.Title>{country.name?.common}</Card.Title>
-                      <Card.Text>Population: { Number(country.population).toLocaleString() }</Card.Text>
-                      <Card.Text>Region: {country.region}</Card.Text>
-                      <Card.Text>Capital: {country.capital}</Card.Text>
+                      <Card.Title className="countryName">{country.name?.common}</Card.Title>
+                      
+                      <Card.Text>
+                        <span className="populationValue">Population: </span>
+                        { Number(country.population).toLocaleString() }
+                      </Card.Text>
+                      
+                      <Card.Text>
+                        <span className="regionValue">Region: </span>
+                        {country.region}
+                      </Card.Text>
+                      
+                      <Card.Text>
+                        <span className="capitalValue">Capital: </span>
+                        {country.capital}
+                      </Card.Text>
                     </Card.Body>
                   </Card>
                 </Col>

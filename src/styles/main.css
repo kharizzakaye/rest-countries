@@ -2,6 +2,32 @@
 
 body {
     background-color: hsl(0, 0%, 98%);
+    font-family: "Nunito Sans", system-ui;
+}
+
+/* Navbar */
+.navbar {
+    margin-bottom: 30px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.brand {
+    font-weight: 700;
+}
+
+/* Cards */
+.countryName {
+    font-weight: 800;
+}
+
+.populationValue,
+.regionValue,
+.capitalValue {
+    font-weight: 700;
+}
+
+.card-text {
+    margin: 0px;
 }
 
 .card-shadow {
