@@ -4,6 +4,8 @@ import "../styles/main.css";
 import { Button } from 'react-bootstrap';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type Props = {}
 
@@ -11,7 +13,6 @@ const NavbarComponent = (props: Props) => {
 
     const [buttonText, setButtonText] = useState<string>("Dark Mode");
     const [buttonStyling, setButtonStyling] = useState<string>("light");
-    const [buttonIcon, setButtonIcon] = useState<string>("Dark Mode");
     const navigate = useNavigate();
 
     const onDisplayModeClick = () => {
@@ -36,6 +37,7 @@ const NavbarComponent = (props: Props) => {
                     className={`btn-${buttonStyling}`} 
                     onClick={ onDisplayModeClick }
                 >
+                    <FontAwesomeIcon icon={ buttonText == "Dark Mode" ? faMoon : faSun} className="icon-margin"/>
                     { buttonText }
                 </Button>
             </Container>

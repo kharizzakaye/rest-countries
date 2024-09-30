@@ -7,8 +7,6 @@ import {
 
 import "./styles/main.css";
 import CountriesListPage from './pages/CountriesListPage';
-import NavbarComponent from './components/NavbarComponent';
-import CardComponent from './components/CardComponent';
 import CountryDetailsPage from './pages/CountryDetailsPage';
 
 function App() {

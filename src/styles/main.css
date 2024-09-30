@@ -5,6 +5,10 @@ body {
     font-family: "Nunito Sans", system-ui;
 }
 
+.icon-margin {
+    margin-right: 6px;
+}
+
 /* Navbar */
 .navbar {
     margin-bottom: 30px;
@@ -32,4 +36,99 @@ body {
 
 .card-shadow {
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Detail Page */
+.btn-back {
+    margin-top: 5px;
+    margin-bottom: 35px;
+    padding: 8px 30px 8px 30px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.information-container {
+    text-align: center;
+}
+
+.title {
+    font-weight: 900;
+    font-size: 30px;
+    margin: 30px 0 0 0;
+    text-align: center;
+}
+
+.sub-title {
+    font-weight: 900;
+    font-size: 20px;
+    margin: 0 0 35px 0 ;
+    text-align: center;
+}
+
+.fieldTitle {
+    font-weight: 700;
+}
+
+/* Border countries */
+.border-countries-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.border-countries-container .fieldTitle {
+    display: block;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .information-container {
+        text-align: left;
+    }
+
+    /* Border countries */
+    .border-countries-container {
+        text-align: left;
+    }
+
+    .border-countries-container .fieldTitle {
+        display: inline;
+    }
+
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .btn-back {
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+    
+    .title {
+        font-size: 40px;
+        margin: 0;
+        text-align: left;
+    }
+    
+    .sub-title {
+        font-size: 20px;
+        margin: 0 0 20px 0 ;
+        text-align: left;
+    }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    
 }

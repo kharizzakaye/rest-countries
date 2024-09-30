@@ -3,6 +3,8 @@ import NavbarComponent from '../components/NavbarComponent';
 import { Button, Col, Container, Image, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import * as apiService from "../services/apiService";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 type Props = {}
 
@@ -35,20 +37,22 @@ const CountryDetailsPage = (props: Props) => {
         <NavbarComponent />
   
         <Container>
-          <Button onClick={onBackHandler}>Back</Button>
+          <Button onClick={onBackHandler} className="btn-back btn-light">
+            <FontAwesomeIcon icon={faArrowLeft} className="icon-margin" /> Back
+            </Button>
 
           <Row>
-            <Col lg={6}>
+            <Col lg={5} xl={6}>
               <Image src={countryData.flags.svg} fluid alt={countryData.flags.alt} />
             </Col>
 
-            <Col lg={6}>
+            <Col lg={7} xl={6}>
               <Row>
-                <p>{countryData.name.common}</p>
-                <p>{countryData.name.official}</p>
+                <p className="title">{countryData.name.common}</p>
+                <p className="sub-title" >{countryData.name.official}</p>
               </Row>
 
-              <Row>
+              <Row className="information-container">
                 <Col md={6}>
                   <p>
                     <span className="fieldTitle">Native Name(s): </span>
@@ -96,7 +100,7 @@ const CountryDetailsPage = (props: Props) => {
                 </Col>
               </Row>
 
-              <Row>
+              <Row className="border-countries-container">
                 <p>
                   <span className="fieldTitle">Border Countries: </span>
                   { 
