@@ -10,6 +10,17 @@ async function getAllCountriesList()
     return response.data;
 }
 
+async function getCountryDetails(name: string)
+{
+    const response = await axios.get(
+        String(process.env.REACT_APP_BASE_API_URL) + 
+        `/name/${name}`
+    );
+    
+    return response.data;
+}
+
 export {
     getAllCountriesList,
+    getCountryDetails,
 }

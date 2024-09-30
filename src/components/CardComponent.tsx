@@ -4,10 +4,12 @@ import Card from 'react-bootstrap/Card';
 import * as apiService from "../services/apiService";
 import { Row, Col, CardGroup, Container } from 'react-bootstrap';
 import "../styles/main.css";
+import { useNavigate } from 'react-router-dom';
 
 const CardComponent = () => {
 
   const [countriesList, setCountriesList] = useState<any[]>([]);
+  const navigate = useNavigate();
 
   async function getAllCountries()
   {
@@ -21,6 +23,11 @@ const CardComponent = () => {
     getAllCountries();
   }, [])
 
+  const onSelectedCountryHandler = () => {
+
+  }
+
+
   return (
     <Container>
       { countriesList && 
@@ -29,28 +36,30 @@ const CardComponent = () => {
             { countriesList.map((country: any, index) => (
             
                 <Col key={index} >
-                  <Card className="p-0 h-100 border-0 card-shadow">
-                    <Card.Img variant="top" src={country.flags?.png} style={{ height: "200px" }} />
+                  <a href={`/detail?countryName=${country.name?.common}`} style={{ textDecoration: "none" }}>
+                    <Card className="p-0 h-100 border-0 card-shadow">
+                      <Card.Img variant="top" src={country.flags?.png} style={{ height: "200px" }} />
 
-                    <Card.Body>
-                      <Card.Title className="countryName">{country.name?.common}</Card.Title>
-                      
-                      <Card.Text>
-                        <span className="populationValue">Population: </span>
-                        { Number(country.population).toLocaleString() }
-                      </Card.Text>
-                      
-                      <Card.Text>
-                        <span className="regionValue">Region: </span>
-                        {country.region}
-                      </Card.Text>
-                      
-                      <Card.Text>
-                        <span className="capitalValue">Capital: </span>
-                        {country.capital}
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
+                      <Card.Body>
+                        <Card.Title className="countryName">{country.name?.common}</Card.Title>
+                        
+                        <Card.Text>
+                          <span className="populationValue">Population: </span>
+                          { Number(country.population).toLocaleString() }
+                        </Card.Text>
+                        
+                        <Card.Text>
+                          <span className="regionValue">Region: </span>
+                          {country.region}
+                        </Card.Text>
+                        
+                        <Card.Text>
+                          <span className="capitalValue">Capital: </span>
+                          {country.capital}
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </a>
                 </Col>
         
             ))}
