@@ -7,7 +7,7 @@ const CardComponent = ( countriesData: any ) => {
     <>
       { countriesData && 
         <>
-          <Row xl={4} lg={3} md={2} sm={2} xs={1} className="g-4">
+          <Row xl={4} lg={3} md={2} sm={2} xs={1} className="g-4" style={{ marginBottom: "50px" }}>
 
               { countriesData.countriesData.map((country: any, index: any) => (
               

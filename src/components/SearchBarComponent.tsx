@@ -102,9 +102,8 @@ const SearchBarComponent = (props: Props) => {
                         </Row>
                     </div>
         
-                    { countriesList.length != 0 && 
                     <CardComponent countriesData={countriesList} />
-                    }
+              
                 </Container>
             }
         </>
