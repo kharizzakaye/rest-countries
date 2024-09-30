@@ -1,13 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
 body {
-    background-color: hsl(0, 0%, 98%);
     font-family: "Nunito Sans", system-ui;
 }
 
 .icon-margin {
     margin-right: 6px;
 }
+
+/* Colors */
+
+/* Dark mode text / light mode elements */
+.white-text { 
+    color: hsl(0, 0%, 100%);
+}
+
+/* Light mode */
+.light-mode-text {
+    color: hsl(200, 15%, 8%);
+}
+
+.light-mode-input {
+    background-color: hsl(0, 0%, 52%);
+}
+
+.light-mode-background  {
+    background-color: hsl(0, 0%, 98%);
+}
+
+/* Dark mode */
+.dark-mode-element {
+    background-color: hsl(209, 23%, 22%);
+}
+
+.dark-mode-background {
+    background-color: hsl(207, 26%, 17%);
+}
+
+
 
 /* Navbar */
 .navbar {

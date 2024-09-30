@@ -3,7 +3,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import "../styles/main.css";
 import { Button } from 'react-bootstrap';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -13,33 +12,40 @@ const NavbarComponent = (props: Props) => {
 
     const [buttonText, setButtonText] = useState<string>("Dark Mode");
     const [buttonStyling, setButtonStyling] = useState<string>("light");
-    const navigate = useNavigate();
+
+    const lightModeClasses = "light-mode-background"
+
+    const darkModeClasses = "dark-mode-element white-text"
 
     const onDisplayModeClick = () => {
         if ( buttonText == "Dark Mode")
         {
             setButtonText("Light Mode");
-            setButtonStyling("dark");
+            setButtonStyling("dark-mode-element white-text");
         }
 
         if ( buttonText == "Light Mode")
         {
             setButtonText("Dark Mode");
-            setButtonStyling("light");
+            setButtonStyling("light-mode-background light-mode-text");
         }
     }
 
     return (
-        <Navbar expand="lg" className="bg-body-tertiary navbar" sticky="top">
+        <Navbar 
+            expand="lg" 
+            className={ buttonText == "Dark Mode" ?  lightModeClasses : darkModeClasses  }
+            sticky="top"
+        >
             <Container>
-                <Navbar.Brand href="/" className="brand">Where in the world?</Navbar.Brand>
-                <Button 
-                    className={`btn-${buttonStyling}`} 
+                <Navbar.Brand href="/" className={`brand ${buttonStyling}`}>Where in the world?</Navbar.Brand>
+                {/* <Button 
+                    className={`btn border-0 ${buttonStyling}`} 
                     onClick={ onDisplayModeClick }
                 >
                     <FontAwesomeIcon icon={ buttonText == "Dark Mode" ? faMoon : faSun} className="icon-margin"/>
                     { buttonText }
-                </Button>
+                </Button> */}
             </Container>
         </Navbar>
     )
