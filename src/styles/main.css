@@ -56,6 +56,10 @@ body {
     margin-bottom: 30px;
 }
 
+#region-dropdown-container {
+    /* text-align: right !important; */
+}
+
 
 /* Cards */
 .countryName {

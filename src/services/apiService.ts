@@ -10,6 +10,17 @@ async function getAllCountriesList()
     return response.data;
 }
 
+async function getAllCountriesListByRegion(region: string)
+{
+    const response = await axios.get(
+        String(process.env.REACT_APP_BASE_API_URL) + 
+        `/region/${region}`        
+    );
+
+    return response.data;
+}
+
+
 async function getCountryDetails(name: string)
 {
     const response = await axios.get(
@@ -22,5 +33,6 @@ async function getCountryDetails(name: string)
 
 export {
     getAllCountriesList,
+    getAllCountriesListByRegion,
     getCountryDetails,
 }
