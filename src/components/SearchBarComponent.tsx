@@ -1,7 +1,7 @@
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState, useEffect } from 'react'
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import CardComponent from './CardComponent';
@@ -21,11 +21,13 @@ const regionsList = [
 
 const SearchBarComponent = (props: Props) => { 
     const [countriesList, setCountriesList] = useState<any[]>([]);
+    const [unfilteredCountriesList, setUnfilteredCountriesList] = useState<any[]>([]);
 
     async function getAllCountries()
     {
         const getAllCount: any = await apiService.getAllCountriesList();
         setCountriesList(getAllCount);
+        setUnfilteredCountriesList(getAllCount);
     }
 
 
@@ -40,6 +42,21 @@ const SearchBarComponent = (props: Props) => {
             const getCountriesByRegion: any = await apiService.getAllCountriesListByRegion(event.target.value);
             setCountriesList(getCountriesByRegion);
         }
+    }
+
+    async function onFilterByCountryHandler (event: any)
+    {
+        const keywordSearch = event.target.value;
+
+        if ( keywordSearch == "" || keywordSearch == null)
+        {
+            getAllCountries();
+        }
+        else
+        {
+            const filteredData = unfilteredCountriesList.filter ( (country: any) => country.name?.common.toLowerCase().includes(keywordSearch.toLowerCase()) )
+            setCountriesList(filteredData);
+        } 
     }
 
     
@@ -64,6 +81,7 @@ const SearchBarComponent = (props: Props) => {
                                         placeholder="Search for a country"
                                         aria-label="Search for a country"
                                         aria-describedby="country-search"
+                                        onChange={ (event: any) => onFilterByCountryHandler(event) }
                                     />
                                 </InputGroup>
                             </Col>

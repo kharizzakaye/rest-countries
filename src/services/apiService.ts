@@ -20,7 +20,6 @@ async function getAllCountriesListByRegion(region: string)
     return response.data;
 }
 
-
 async function getCountryDetails(name: string)
 {
     const response = await axios.get(
