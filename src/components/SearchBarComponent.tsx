@@ -45,7 +45,7 @@ const SearchBarComponent = (props: Props) => {
         let filteredData = [];
         
         // Region EMPTY
-        if ( event.target.value == "Filter by Region" || event.target.value == "")
+        if ( event.target.value == "All Regions" || event.target.value == "")
         {
             setFilterRegionValue("");
 
@@ -149,10 +149,10 @@ const SearchBarComponent = (props: Props) => {
         
                             <Col lg={3} md={6} id="region-dropdown-container">
                                 <Form.Select 
-                                    aria-label="Filter by Region dropdown"
+                                    aria-label="All Regions dropdown"
                                     onChange={(event: any) => onSelectRegionChangeHandler(event)}
                                 >
-                                    <option value="">Filter by Region</option>
+                                    <option value="">All Regions</option>
                                     {
                                         regionsList.map((region: any, index) => (
                                             <option key={index} value={region.text}>{region.text}</option>
