@@ -1,15 +1,13 @@
-import NavbarComponent from '../components/NavbarComponent';
-import SearchBarComponent from '../components/SearchBarComponent';
+import NavbarComponent from "../components/NavbarComponent";
+import SearchBarComponent from "../components/SearchBarComponent";
 
-type Props = {}
-
-const CountriesListPage = (props: Props) => {
+const CountriesListPage = () => {
   return (
     <>
       <NavbarComponent />
       <SearchBarComponent />
     </>
-  )
-}
+  );
+};
 
 export default CountriesListPage;

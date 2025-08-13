@@ -1,37 +1,29 @@
 import axios from "axios";
 
-async function getAllCountriesList()
-{
-    const response = await axios.get(
-        String(process.env.REACT_APP_BASE_API_URL) + 
-        String(process.env.REACT_APP_ENDPOINT_ALL_COUNTRIES)
-    );
+async function getAllCountriesList() {
+  const response = await axios.get(
+    String(process.env.REACT_APP_BASE_API_URL) +
+      String(process.env.REACT_APP_ENDPOINT_ALL_COUNTRIES) +
+      `?fields=name,capital,region,population,flags`
+  );
 
-    return response.data;
+  return response.data;
 }
 
-async function getAllCountriesListByRegion(region: string)
-{
-    const response = await axios.get(
-        String(process.env.REACT_APP_BASE_API_URL) + 
-        `/region/${region}`        
-    );
+async function getAllCountriesListByRegion(region: string) {
+  const response = await axios.get(
+    String(process.env.REACT_APP_BASE_API_URL) + `/region/${region}`
+  );
 
-    return response.data;
+  return response.data;
 }
 
-async function getCountryDetails(name: string)
-{
-    const response = await axios.get(
-        String(process.env.REACT_APP_BASE_API_URL) + 
-        `/name/${name}`
-    );
-    
-    return response.data;
+async function getCountryDetails(name: string) {
+  const response = await axios.get(
+    String(process.env.REACT_APP_BASE_API_URL) + `/name/${name}`
+  );
+
+  return response.data;
 }
 
-export {
-    getAllCountriesList,
-    getAllCountriesListByRegion,
-    getCountryDetails,
-}
+export { getAllCountriesList, getAllCountriesListByRegion, getCountryDetails };
